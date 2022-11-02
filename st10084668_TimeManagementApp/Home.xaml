@@ -1,0 +1,227 @@
+﻿<Window x:Class="st10084668_TimeManagementApp.Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:st10084668_TimeManagementApp"
+        mc:Ignorable="d"
+         Title="Home" Height="550" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle ="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True" >
+    <Border CornerRadius="10" >
+        <Border.Background>
+            <ImageBrush ImageSource="\Images\login background.PNG" />
+
+        </Border.Background>
+
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="16*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid x:Name="DataGrid1"  AutoGenerateColumns="False" Margin="-2,78,318,256" Grid.ColumnSpan="3" FontFamily="Baskerville Old Face" FontWeight="Bold" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Code" Binding="{Binding moduleCode}" FontFamily="Baskerville Old Face"  Width="Auto"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding moduleName}" FontFamily="Baskerville Old Face"  Width="Auto"/>
+                    <DataGridTextColumn Header="Credits" Binding="{Binding credits}" FontFamily="Baskerville Old Face"  Width="Auto"/>
+                    <DataGridTextColumn Header="Class Hours/Week" Binding="{Binding classHrsPerWeek }"  FontFamily="Baskerville Old Face" Width="Auto"/>
+                    <DataGridTextColumn Header="Weeks in Semester" Binding="{Binding weeksInSemester}"  FontFamily="Baskerville Old Face" Width="Auto"/>
+                    <DataGridTextColumn Header="Start Date" Binding="{Binding startDate}"  FontFamily="Baskerville Old Face" Width="Auto"/>
+                    <DataGridTextColumn Header="Self-study Hours/Week" Binding="{Binding selfStudyHrs}" FontFamily="Baskerville Old Face" Width="Auto"/>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+            <Label Content="Time Management app" Margin="248,0,273,510" FontFamily="Baskerville Old Face" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
+            <Canvas  Height="2" Background="Black" Margin="248,38,273,510" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <Button x:Name="btnAdd" Content="Add Module" HorizontalAlignment="Left" Margin="34,508,0,0" VerticalAlignment="Top" Height="22" Width="112" FontFamily="Baskerville Old Face" FontSize="16" FontWeight="Bold" Click="btnAdd_Click" Grid.Column="1" BorderBrush="White">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White" Offset="0"/>
+                        <GradientStop Color="#FF18EAA3" Offset="0.904"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Grid.Column="2" Content="Exit" HorizontalAlignment="Left" Margin="346,10,0,0" VerticalAlignment="Top" Width="44" Height="20" FontFamily="Baskerville Old Face" FontWeight="Normal" Background="#FF5DA0A4" BorderBrush="#FF384A49" Click="Button_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Label Content="Module Details :" HorizontalAlignment="Left" Margin="4,50,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
+            <Canvas  Height="2" Background="Black" Margin="6,71,275,477" Grid.ColumnSpan="2"/>
+            <Label Content="Add a Module :" HorizontalAlignment="Left" Margin="2,292,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Baskerville Old Face" FontSize="16" FontWeight="Bold"/>
+            <Canvas  Height="2" Background="Black" Margin="7,314,284,234" Grid.ColumnSpan="2"/>
+            <Label Content="Code :" HorizontalAlignment="Left" Margin="4,315,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16" Grid.ColumnSpan="2"/>
+            <Label Content="Name :" HorizontalAlignment="Left" Margin="3,344,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16" Grid.ColumnSpan="2"/>
+            <Label Content="Credits :" HorizontalAlignment="Left" Margin="3,372,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16" Grid.ColumnSpan="2"/>
+            <Label Content="Class hours per week :" HorizontalAlignment="Left" Margin="4,405,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16" Grid.ColumnSpan="2"/>
+            <Label x:Name="lblWeeks" Content="Number of weeks in semester : " HorizontalAlignment="Left" Margin="6,435,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16" Grid.ColumnSpan="2"/>
+            <Label x:Name="lblstartDate" Content="Semester start date : " HorizontalAlignment="Left" Margin="6,468,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="tbCode" HorizontalAlignment="Left" Margin="43,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0"  Width="178" FontFamily="Baskerville Old Face" Height="22" FontSize="16" Grid.Column="1" Opacity="0.7">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </TextBox.Resources>
+                <TextBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Gray" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+
+            <TextBox x:Name="tbName" HorizontalAlignment="Left" Margin="43,347,0,0" BorderThickness="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" FontFamily="Baskerville Old Face" Height="22" FontSize="16" Grid.Column="1" Opacity="0.7">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </TextBox.Resources>
+                <TextBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Gray" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+
+            <TextBox x:Name="tbCredits" HorizontalAlignment="Left" Margin="43,378,0,0" BorderThickness="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" FontFamily="Baskerville Old Face" Height="22" FontSize="16" Grid.Column="1" Opacity="0.7">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </TextBox.Resources>
+                <TextBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Gray" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+
+            <TextBox x:Name="tbHrsPWk" HorizontalAlignment="Left" Margin="133,407,0,0" BorderThickness="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontFamily="Baskerville Old Face" Height="22" FontSize="16" Grid.Column="1" Opacity="0.7">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </TextBox.Resources>
+                <TextBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Gray" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+
+            <TextBox x:Name="tbNumWeeks" HorizontalAlignment="Left" Margin="189,435,0,0" BorderThickness="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontFamily="Baskerville Old Face" Height="22" FontSize="16" Grid.Column="1" Opacity="0.7">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </TextBox.Resources>
+                <TextBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Gray" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+
+            <DatePicker x:Name="DatePicker1" HorizontalAlignment="Center" Margin="0,469,0,0" VerticalAlignment="Top" Width="131" FontFamily="Baskerville Old Face" FontSize="16" Grid.Column="1" >
+                <DatePicker.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
+            <DataGrid x:Name="DataGrid2"  Grid.Column="2" Margin="106,78,32,301" FontFamily="Baskerville Old Face" FontWeight="Bold"/>
+            <Label Grid.Column="2" Content="Self Study Records : " HorizontalAlignment="Left" Margin="106,51,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16" FontWeight="Bold"/>
+            <Canvas  Height="2" Background="Black" Margin="110,72,151,476" Grid.Column="2"/>
+            <Label Grid.Column="2" Content="Add hours worked :" HorizontalAlignment="Left" Margin="107,251,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16" FontWeight="Bold"/>
+            <Canvas  Height="2" Background="Black" Margin="110,273,151,275" Grid.Column="2"/>
+            <Label Grid.Column="2" Content="Date of study :" HorizontalAlignment="Left" Margin="107,308,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16"/>
+            <Label Grid.Column="2" Content="Code :" HorizontalAlignment="Left" Margin="107,278,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16"/>
+            <Label Grid.Column="2" Content="Hours Worked :" HorizontalAlignment="Left" Margin="106,339,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Baskerville Old Face"/>
+            <DatePicker x:Name="DatePicker2" Grid.Column="2" HorizontalAlignment="Left" Margin="209,310,0,0" VerticalAlignment="Top">
+                <DatePicker.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
+            <TextBox x:Name="tbHoursWorked" Grid.Column="2" HorizontalAlignment="Left" BorderThickness="0" Margin="228,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" Height="22" Opacity="0.7">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </TextBox.Resources>
+                <TextBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Gray" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+
+            <ComboBox x:Name="cmbxCode" Grid.Column="2" HorizontalAlignment="Left" Margin="167,281,0,0" VerticalAlignment="Top" Width="118" Height="22" SelectionChanged="cmbxCode_SelectionChanged"/>
+            <Button x:Name="btnHoursWorked" Grid.Column="2" Content="Add Hours" HorizontalAlignment="Left" Margin="185,378,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16" FontWeight="Bold" Click="btnHoursWorked_Click" BorderBrush="White">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF18EAA3" Offset="0.788"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Label Grid.Column="2" Content="For current week:" HorizontalAlignment="Left" Margin="94,399,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16" FontWeight="Bold"/>
+            <Canvas  Height="2" Background="Black" Margin="94,419,179,129" Grid.Column="2"/>
+            <Image Grid.Column="2" HorizontalAlignment="Left" Height="14" Margin="194,10,0,0" VerticalAlignment="Top" Width="18" Source="/Images/username image.png"/>
+            <Label x:Name="lbluser" Grid.Column="2" Content="Logged in as: " HorizontalAlignment="Left" Margin="203,7,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="13" FontWeight="Bold" Foreground="#FF239520"/>
+            <ComboBox x:Name="cmbxCode2" Grid.Column="2" HorizontalAlignment="Left" Margin="198,423,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbxCode2_SelectionChanged"/>
+            <Label Grid.Column="2" Content="Module code:" HorizontalAlignment="Left" Margin="94,420,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16"/>
+            <Label Grid.Column="2" Content="Hours Remaining:" HorizontalAlignment="Left" Margin="94,448,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16"/>
+            <Label x:Name="lblHrsRem" Grid.Column="2" Content="" HorizontalAlignment="Left" Margin="225,449,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontWeight="Bold">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Gray" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.214"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Label Grid.Column="2" Content="Total hours studied:" HorizontalAlignment="Left" Margin="94,477,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16"/>
+            <Label x:Name="lblHrsSpent" Grid.Column="2" Content="" HorizontalAlignment="Left" Margin="232,480,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontWeight="Bold">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Gray" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.113"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Label Grid.Column="2" Content="Extra hours studied:" HorizontalAlignment="Left" Margin="93,507,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="16"/>
+            <Label x:Name="lblExtraHrs" Grid.Column="2" Content="" HorizontalAlignment="Left" Margin="232,509,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontWeight="Bold">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Gray" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.113"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+           
+        </Grid>
+    </Border>
+</Window>

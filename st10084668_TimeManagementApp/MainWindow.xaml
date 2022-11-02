@@ -1,0 +1,40 @@
+﻿<Window x:Class="st10084668_TimeManagementApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:st10084668_TimeManagementApp"
+        mc:Ignorable="d"
+        Height="400" Width="600"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle ="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Border CornerRadius="10">
+
+        <Border.Background>
+            <ImageBrush ImageSource="/Images/BackgroundImage.jpg" />
+
+        </Border.Background>
+
+        <Grid>
+            <Label Content="Time Management App" HorizontalAlignment="Center" Margin="0,82,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" FontSize="45"/>
+            <Button Content="Exit" HorizontalAlignment="Left" Margin="546,10,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face" Height="20" Width="44" Click="Button_Click" Background="#FF5DA0A4" BorderBrush="#FF384A49">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <ProgressBar x:Name="Pb" HorizontalAlignment="Center" Height="26" Margin="0,374,0,0" VerticalAlignment="Top" Width="600" Maximum="100" Background="#FF55AC99" Foreground="White" Value="{Binding WorkerState }" ValueChanged="Pb_ValueChanged" />
+            <!--Increase value as progress bar loads-->
+            <TextBlock Text="{Binding ElementName=Pb, Path=Value ,StringFormat={}{0:0}%}" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,381,0,0" FontFamily="Baskerville Old Face"/>
+
+            <Label x:Name="lblprogress" Content="Starting . . ." HorizontalAlignment="Left" Margin="256,376,0,0" VerticalAlignment="Top" FontFamily="Baskerville Old Face"/>
+        </Grid>
+    </Border>
+</Window>
+
